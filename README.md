@@ -3,6 +3,7 @@ Author Profiling in Python
 
 #Known Issues
 * In the conjunction, we need to check the combination of words. 
+* While getting the first 100 lines, there is a chance last sentence is incomplete. 
 
 # Acknowledgement
 * Parsing English: https://explosion.ai/blog/parsing-english-in-python
