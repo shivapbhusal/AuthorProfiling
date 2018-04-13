@@ -58,7 +58,7 @@ class Profiler:
 				totalWords=totalWords+1
 				if word.lower() in personalPronouns:
 					totalPersonalPronouns=totalPersonalPronouns+1
-		return totalPersonalPronouns/totalWords
+		return totalPersonalPronouns*100/totalWords
 
 	def getConjIndex(self, data):
 		conjList=[]
@@ -74,7 +74,7 @@ class Profiler:
 				totalWords=totalWords+1
 				if word.lower() in conjList:
 					totalConj=totalConj+1
-		return totalConj/totalWords
+		return totalConj*100/totalWords
 
 	def getPrepIndex(self, data):
 		prepList=[]
@@ -90,7 +90,7 @@ class Profiler:
 				totalWords=totalWords+1
 				if word.lower() in prepList:
 					totalPrep=totalPrep+1
-		return totalPrep/totalWords
+		return totalPrep*100/totalWords
 
 	def getArticleIndex(self, data):
 		articleList=['a','an','the']
@@ -102,4 +102,4 @@ class Profiler:
 				totalWords=totalWords+1
 				if word.lower() in articleList:
 					totalArticles=totalArticles+1
-		return totalArticles/totalWords
+		return totalArticles*100/totalWords
