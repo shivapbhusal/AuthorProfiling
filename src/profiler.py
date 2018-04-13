@@ -8,8 +8,7 @@ import re
 class Profiler:
 	'''
 	Gets the profile the text. 
-	Eg. Average length of senteces, ratio of nouns, 
-	ratio of verbs, use of narrations etc. 
+	Eg. Average length of sentences, conjIndex, ppIndex etc. 
 	'''
 	def __init(self):
 		print("A Profiler object created")
@@ -23,7 +22,8 @@ class Profiler:
 		textFile.close
 		profile['avgLength']=self.getAvgLength(data)
 		profile['author']=author
-		profile['ppIndex']=self.getPersonalPronouns(data)
+		profile['ppIndex']=self.getppIndex(data)
+		profile['conjIndex']=self.getConjIndex(data)
 		return profile
 
 	def getAvgLength(self, data): # Filters proper sentences, removes empty strings, and gets the length. 
@@ -42,7 +42,7 @@ class Profiler:
 			total=total+length
 		return (total/len(lengthList))
 
-	def getPersonalPronouns(self, data):
+	def getppIndex(self, data):
 		personalPronouns=[]
 		with open('pivotFiles/personalPronouns.txt', 'r') as textFile: # Read the list of pronouns
 			for pronouns in textFile:
@@ -57,6 +57,22 @@ class Profiler:
 				if word.lower() in personalPronouns:
 					totalPersonalPronouns=totalPersonalPronouns+1
 		return totalPersonalPronouns/totalWords
+
+	def getConjIndex(self, data):
+		conjList=[]
+		with open('pivotFiles/conjunctions.txt', 'r') as textFile: # Read the list of pronouns
+			for conj in textFile:
+				conjList.append(conj.strip().lower())
+
+		totalWords=0
+		totalConj=0
+		for sentences in data:
+			words=sentences.split(' ')
+			for word in words:
+				totalWords=totalWords+1
+				if word.lower() in conjList:
+					totalConj=totalConj+1
+		return totalConj/totalWords
 
 
 p=Profiler()
