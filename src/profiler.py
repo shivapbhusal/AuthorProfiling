@@ -103,8 +103,3 @@ class Profiler:
 				if word.lower() in articleList:
 					totalArticles=totalArticles+1
 		return totalArticles/totalWords
-
-
-p=Profiler()
-print(p.getProfile('testData/Dikens/greatExpectations.txt','Dikens'))
-print(p.getProfile('testData/Chekhov/stories.txt','Chekhov'))
