@@ -10,5 +10,6 @@ Author Profiling in Python
 * Most common English words
 * https://stackoverflow.com/questions/2288953/separate-word-lists-for-nouns-verbs-adjectives-etc
 * http://users.dsic.upv.es/~prosso/resources/RangelRosso_NLPCS13.pdf
+* List of 150 prepositions: https://www.englishclub.com/grammar/prepositions-list.htm
 
 

@@ -24,6 +24,7 @@ class Profiler:
 		profile['author']=author
 		profile['ppIndex']=self.getppIndex(data)
 		profile['conjIndex']=self.getConjIndex(data)
+		profile['prepIndex']=self.getPrepIndex(data)
 		return profile
 
 	def getAvgLength(self, data): # Filters proper sentences, removes empty strings, and gets the length. 
@@ -73,6 +74,22 @@ class Profiler:
 				if word.lower() in conjList:
 					totalConj=totalConj+1
 		return totalConj/totalWords
+
+	def getPrepIndex(self, data):
+		prepList=[]
+		with open('pivotFiles/prepositions.txt', 'r') as textFile: # Read the list of pronouns
+			for prep in textFile:
+				prepList.append(prep.strip().lower())
+
+		totalWords=0
+		totalPrep=0
+		for sentences in data:
+			words=sentences.split(' ')
+			for word in words:
+				totalWords=totalWords+1
+				if word.lower() in prepList:
+					totalPrep=totalPrep+1
+		return totalPrep/totalWords
 
 
 p=Profiler()
