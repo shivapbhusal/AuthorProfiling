@@ -25,6 +25,7 @@ class Profiler:
 		profile['ppIndex']=self.getppIndex(data)
 		profile['conjIndex']=self.getConjIndex(data)
 		profile['prepIndex']=self.getPrepIndex(data)
+		profile['articleIndex']=self.getArticleIndex(data)
 		return profile
 
 	def getAvgLength(self, data): # Filters proper sentences, removes empty strings, and gets the length. 
@@ -90,6 +91,18 @@ class Profiler:
 				if word.lower() in prepList:
 					totalPrep=totalPrep+1
 		return totalPrep/totalWords
+
+	def getArticleIndex(self, data):
+		articleList=['a','an','the']
+		totalWords=0
+		totalArticles=0
+		for sentences in data:
+			words=sentences.split(' ')
+			for word in words:
+				totalWords=totalWords+1
+				if word.lower() in articleList:
+					totalArticles=totalArticles+1
+		return totalArticles/totalWords
 
 
 p=Profiler()
