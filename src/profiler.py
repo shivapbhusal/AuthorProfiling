@@ -23,7 +23,7 @@ class Profiler:
 		textFile.close
 		profile['avgLength']=self.getAvgLength(data)
 		profile['author']=author
-		profile['personalPronouns']=self.getPersonalPronouns(data)
+		profile['ppIndex']=self.getPersonalPronouns(data)
 		return profile
 
 	def getAvgLength(self, data): # Filters proper sentences, removes empty strings, and gets the length. 
