@@ -6,19 +6,23 @@ Generates separate files for the first 300 lines.
 '''
 import os
 
-textFilePath='Dikens/DavidCopperField.txt'
+textFilePath='Chekhov/witch_and_other_stories.txt'
 lineCount=os.system('wc -l'+' '+textFilePath)
 
 file=open(textFilePath)
-start=0
-end=300
-newFilePath='Dikens/'+str(start)+'-'+str(end)+'.txt'
-for lines in file:
-	newFile=open(newFilePath,'a')
-	newFile.write(lines)
-	start=start+1
-	if start%300==0:
-		end=end+300
-		newFilePath='Dikens/DavidCopperField/'+str(start)+'-'+str(end)+'.txt'
+start=29400
+end=29700
+newFilePath='Chekhov/witch_and_other_stories/'+str(start)+'-'+str(end)+'.txt'
+try:
+	for lines in file:
+		newFile=open(newFilePath,'a')
+		newFile.write(lines)
+		start=start+1
+		if start%300==0:
+			end=end+300
+			newFilePath='Chekhov/witch_and_other_stories/'+str(start)+'-'+str(end)+'.txt'
+except UnicodeDecodeError:
+	print("UnicodeDecodeError detected")
+
 
 file.close()
