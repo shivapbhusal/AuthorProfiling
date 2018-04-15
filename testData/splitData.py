@@ -6,7 +6,7 @@ Generates separate files for the first 300 lines.
 '''
 import os
 
-textFilePath='great_expectations.txt'
+textFilePath='a_tale_of_two_cities.txt'
 lineCount=os.system('wc -l'+' '+textFilePath)
 
 file=open(textFilePath)
