@@ -4,13 +4,14 @@ Parses the given text file.
 '''
 
 import re
+import math
 
 class Profiler:
 	'''
 	Gets the profile the text. 
 	Eg. Average length of sentences, conjIndex, ppIndex etc. 
 	'''
-	def __init(self):
+	def __init__(self):
 		print("A Profiler object created")
 
 	def getProfile(self, textFilePath, author): #Reads text file
@@ -21,11 +22,12 @@ class Profiler:
 			data=data.split('.')
 		textFile.close
 		profile['avgLength']=self.getAvgLength(data)
+		profile['variance']=self.getArticleIndex(data)
 		profile['author']=author
 		profile['ppIndex']=self.getppIndex(data)
 		profile['conjIndex']=self.getConjIndex(data)
 		profile['prepIndex']=self.getPrepIndex(data)
-		profile['articleIndex']=self.getArticleIndex(data)
+		profile['articleIndex']=self.getVariance(data)
 		return profile
 
 	def getAvgLength(self, data): # Filters proper sentences, removes empty strings, and gets the length. 
@@ -103,3 +105,22 @@ class Profiler:
 				if word.lower() in articleList:
 					totalArticles=totalArticles+1
 		return totalArticles*100/totalWords
+
+	def getVariance(self, data):
+		pattern=re.compile('')
+		lengthList=[]
+		for sentences in data:
+			sentences=sentences.split(' ')
+			if len(sentences)>3:
+				lengthList.append(len(sentences))
+		total=0
+		for length in lengthList:
+			total=total+length
+		avg=total/len(lengthList)
+
+		varianceSum=0
+		for length  in lengthList:
+			varianceSum=varianceSum+pow((avg-length),2)
+		variance=math.sqrt(varianceSum/len(lengthList))
+		return variance
+

@@ -14,7 +14,14 @@ def main():
 				fullPath=os.path.join(root,myfile)
 				print(p.getProfile(fullPath,'Dikens'))
 
-	print(p.getProfile('trainingData/Chekhov/stories.txt','Chekhov'))
+	directory='trainingData/Joyce/Ulysses_Dubliners'
+	for root, dirs, files in os.walk(directory):
+		for myfile in files:
+			if myfile.endswith(".txt"):
+				fullPath=os.path.join(root,myfile)
+				print(p.getProfile(fullPath,'Ulysses'))
+
+	#print(p.getProfile('trainingData/Chekhov/stories.txt','Chekhov'))
 
 if __name__ == "__main__":
     main()
