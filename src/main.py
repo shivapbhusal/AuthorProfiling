@@ -19,7 +19,7 @@ def main():
 		for myfile in files:
 			if myfile.endswith(".txt"):
 				fullPath=os.path.join(root,myfile)
-				print(p.getProfile(fullPath,'Ulysses'))
+				print(p.getProfile(fullPath,'Joyce'))
 
 	#print(p.getProfile('trainingData/Chekhov/stories.txt','Chekhov'))
 

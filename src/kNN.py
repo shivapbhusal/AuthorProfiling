@@ -2,6 +2,7 @@
 Implementation of K-Nearest Neighbour classifier
 '''
 import ast
+import os
 import math
 import profiler as profiler
 
@@ -22,37 +23,37 @@ class KNN:
 		kNeighbours=[]
 		for i in range(self.K):
 			kNeighbours.append(allDistances[keys[i]])
-		print(kNeighbours)
+		#print(kNeighbours)
 		print(self.getClass(kNeighbours))
 			
 	def getEuclidianDistance(self,newProfile, existingProfile):
+		avgConjDiff=pow((newProfile['conjIndex']-existingProfile['conjIndex']),2)
 		avgLengthDiff=pow((newProfile['avgLength']-existingProfile['avgLength']),2)
 		varianceDiff=pow((newProfile['variance']-existingProfile['avgLength']),2)
-		distance=math.sqrt(avgLengthDiff+varianceDiff)
+		avgArticleDiff=pow((newProfile['articleIndex']-existingProfile['articleIndex']),2)
+		prepIndexDiff=pow((newProfile['prepIndex']-existingProfile['prepIndex']),2)
+		ppIndexDiff=pow((newProfile['ppIndex']-existingProfile['ppIndex']),2)
+		distance=math.sqrt(avgLengthDiff+varianceDiff+avgConjDiff+avgArticleDiff)
 		return distance
 
 	def getClass(self, kNeighbours):
 		authorDict=dict()
+		authorDict['Joyce']=0
+		authorDict['Dikens']=0
 		for author in kNeighbours:
-			if author not in authorDict:
-				authorDict[author]=1
-			else:
-				authorDict[author]+=1
-		print(authorDict)
-		if authorDict['Joyce']==5:
+			authorDict[author]+=1
+		if authorDict['Joyce']>authorDict['Dikens']:
 			return 'Joyce'
-		elif authorDict['Dikens']==5:
-			return 'Dikens'
 		else:
-			if authorDict['Joyce']>authorDict['Dikens']:
-				return 'Joyce'
-			else:
-				return 'Dikens'
+			return 'Dikens'
 
 knn=KNN(5)
 p=profiler.Profiler()
-directory='testData/Joyce/test4.txt'
-newProfile=ast.literal_eval(str(p.getProfile(directory,'Joyce')))
-knn.classify(newProfile)
 
-#print(knn.classify(newProfile))
+directory='testData/Dikens'
+for root, dirs, files in os.walk(directory):
+	for myfile in files:
+		if myfile.endswith(".txt"):
+			fullPath=os.path.join(root,myfile)
+			newProfile=ast.literal_eval(str(p.getProfile(fullPath,'Dikens')))
+			knn.classify(newProfile)
