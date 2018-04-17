@@ -6,23 +6,23 @@ Generates separate files for the first 300 lines.
 '''
 import os
 
-textFilePath='Joyce/finnegans_wake.txt'
+textFilePath='portrait_of_the_artist_as_young_man.txt'
 lineCount=os.system('wc -l'+' '+textFilePath)
 
 file=open(textFilePath)
-start=0
-end=300
-newFilePath='Joyce/'+str(start)+'-'+str(end)+'.txt'
-try:
-	for lines in file:
+start=6900
+end=7200
+newFilePath='Joyce/'+str(start)+'-'+str(end)+'portrait.txt'
+for lines in file:
+	try:
 		newFile=open(newFilePath,'a')
 		newFile.write(lines)
 		start=start+1
 		if start%300==0:
 			end=end+300
 			newFilePath='Joyce/'+str(start)+'-'+str(end)+'.txt'
-except UnicodeDecodeError:
-	print("UnicodeDecodeError detected")
+	except UnicodeDecodeError:
+		continue
 
 
 file.close()
