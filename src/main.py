@@ -8,6 +8,7 @@ import os
 def main():
 	p=profiler.Profiler()
 	directory='trainingData/Dikens/DavidCopperfield'
+	outputFile="results/authorProfiles.txt"
 	for root, dirs, files in os.walk(directory):
 		for myfile in files:
 			if myfile.endswith(".txt"):

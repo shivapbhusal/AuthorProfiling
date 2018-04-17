@@ -6,7 +6,7 @@ Generates separate files for the first 300 lines.
 '''
 import os
 
-textFilePath='finnegans_wake.txt'
+textFilePath='Joyce/finnegans_wake.txt'
 lineCount=os.system('wc -l'+' '+textFilePath)
 
 file=open(textFilePath)

@@ -33,7 +33,8 @@ class KNN:
 		avgArticleDiff=pow((newProfile['articleIndex']-existingProfile['articleIndex']),2)
 		prepIndexDiff=pow((newProfile['prepIndex']-existingProfile['prepIndex']),2)
 		ppIndexDiff=pow((newProfile['ppIndex']-existingProfile['ppIndex']),2)
-		distance=math.sqrt(avgLengthDiff+varianceDiff+avgConjDiff+avgArticleDiff)
+		commaIndexDiff=pow((newProfile['commaIndex']-existingProfile['commaIndex']),2)
+		distance=math.sqrt(avgLengthDiff+avgConjDiff+commaIndexDiff+ppIndexDiff+prepIndexDiff)
 		return distance
 
 	def getClass(self, kNeighbours):
@@ -56,4 +57,12 @@ for root, dirs, files in os.walk(directory):
 		if myfile.endswith(".txt"):
 			fullPath=os.path.join(root,myfile)
 			newProfile=ast.literal_eval(str(p.getProfile(fullPath,'Dikens')))
+			knn.classify(newProfile)
+
+directory='testData/Joyce'
+for root, dirs, files in os.walk(directory):
+	for myfile in files:
+		if myfile.endswith(".txt"):
+			fullPath=os.path.join(root,myfile)
+			newProfile=ast.literal_eval(str(p.getProfile(fullPath,'Joyce')))
 			knn.classify(newProfile)

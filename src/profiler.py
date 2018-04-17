@@ -28,6 +28,7 @@ class Profiler:
 		profile['conjIndex']=self.getConjIndex(data)
 		profile['prepIndex']=self.getPrepIndex(data)
 		profile['articleIndex']=self.getVariance(data)
+		profile['commaIndex']=self.getCommaIndex(data)
 		return profile
 
 	def getAvgLength(self, data): # Filters proper sentences, removes empty strings, and gets the length. 
@@ -123,4 +124,19 @@ class Profiler:
 			varianceSum=varianceSum+pow((avg-length),2)
 		variance=math.sqrt(varianceSum/len(lengthList))
 		return variance
+
+	def getCommaIndex(self, data):
+		comma=','
+		totalWords=0
+		totalCommas=0
+		for sentences in data:
+			words=sentences.split(' ')
+			for word in words:
+				totalWords=totalWords+1
+				if comma in word:
+					totalCommas=totalCommas+1
+		return totalCommas*100/totalWords
+		
+
+
 
