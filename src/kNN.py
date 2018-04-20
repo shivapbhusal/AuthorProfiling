@@ -24,7 +24,7 @@ class KNN:
 		for i in range(self.K):
 			kNeighbours.append(allDistances[keys[i]])
 		#print(kNeighbours)
-		print(self.getClass(kNeighbours))
+		print(self.getClass(kNeighbours)+' '+newProfile['author'])
 			
 	def getEuclidianDistance(self,newProfile, existingProfile):
 		avgConjDiff=pow((newProfile['conjIndex']-existingProfile['conjIndex']),2)

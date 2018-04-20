@@ -10,8 +10,8 @@ textFilePath='Chekhov/witch_and_other_stories.txt'
 lineCount=os.system('wc -l'+' '+textFilePath)
 
 file=open(textFilePath)
-start=29400
-end=29700
+start=0
+end=300
 newFilePath='Chekhov/witch_and_other_stories/'+str(start)+'-'+str(end)+'.txt'
 try:
 	for lines in file:
