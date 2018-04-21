@@ -20,8 +20,10 @@ class Profiler:
 			data=textFile.read().replace('\n', '')
 			data=data.strip()
 			data=data.split('.')
+
 		textFile.close
 		profile['avgLength']=self.getAvgLength(data)
+		#profile['avgWordLength']=self.avgWordLength(data)
 		profile['variance']=self.getArticleIndex(data)
 		profile['author']=author
 		profile['ppIndex']=self.getppIndex(data)
@@ -40,6 +42,11 @@ class Profiler:
 				lengthList.append(len(sentences))
 		#print(lengthList)
 		return self.calculateAvg(lengthList)
+
+	# def getAvgWordLenght(self, data):
+	# 	pattern= data.split()
+	# 	wordList=[]
+	# 	for word in data
 
 	def calculateAvg(self, lengthList):
 		total=0
