@@ -28,7 +28,6 @@ def main():
 					resultForJoyce=p.getProfile(fullPath,'Joyce')
 					textFile.write(str(resultForJoyce)+'\n')	
 	textFile.close
-	#print(p.getProfile('trainingData/Chekhov/stories.txt','Chekhov'))
 
 if __name__ == "__main__":
     main()
