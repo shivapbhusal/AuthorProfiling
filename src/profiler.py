@@ -20,6 +20,7 @@ class Profiler:
 			data=textFile.read().replace('\n', '')
 			data=data.strip()
 			data=data.split('.')
+
 		textFile.close
 		profile['avgLength']=self.getAvgLength(data)
 		profile['variance']=self.getArticleIndex(data)
