@@ -29,12 +29,13 @@ class KNN:
 	def getEuclidianDistance(self,newProfile, existingProfile):
 		avgConjDiff=pow((newProfile['conjIndex']-existingProfile['conjIndex']),2)
 		avgLengthDiff=pow((newProfile['avgLength']-existingProfile['avgLength']),2)
+		avgWordLengthDiff=pow((newProfile['avgWordLength']-existingProfile['avgWordLength']),2)
 		varianceDiff=pow((newProfile['variance']-existingProfile['avgLength']),2)
 		avgArticleDiff=pow((newProfile['articleIndex']-existingProfile['articleIndex']),2)
 		prepIndexDiff=pow((newProfile['prepIndex']-existingProfile['prepIndex']),2)
 		ppIndexDiff=pow((newProfile['ppIndex']-existingProfile['ppIndex']),2)
 		commaIndexDiff=pow((newProfile['commaIndex']-existingProfile['commaIndex']),2)
-		distance=math.sqrt(avgLengthDiff+avgConjDiff+commaIndexDiff+ppIndexDiff+prepIndexDiff)
+		distance=math.sqrt(avgLengthDiff+avgWordLengthDiff+avgConjDiff+commaIndexDiff+ppIndexDiff+prepIndexDiff)
 		return distance
 
 	def getClass(self, kNeighbours):
@@ -48,7 +49,7 @@ class KNN:
 		else:
 			return 'Dikens'
 
-knn=KNN(3)
+knn=KNN(5)
 p=profiler.Profiler()
 
 directory='testData/Dikens'
