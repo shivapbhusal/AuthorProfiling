@@ -28,10 +28,10 @@ python tests/profilerTest.py
 * Make meaningful changes 
 * Send a pull request
 * Git commit message: Use imperative setences to write your commit message. 
-For eg. "add unit tests", fix issue x, etc. 
+For eg. "add unit tests", "fix issue x", etc. 
 Make sure your commit message is shorter than 50 characters. 
 
-#Acknowledgement
+# Acknowledgement
 
 * Parsing English: https://explosion.ai/blog/parsing-english-in-python
 * Dikens, James Joyce
