@@ -40,5 +40,9 @@ Make sure your commit message is shorter than 50 characters.
 * http://users.dsic.upv.es/~prosso/resources/RangelRosso_NLPCS13.pdf
 * List of 150 prepositions: https://www.englishclub.com/grammar/prepositions-list.htm
 
+# Contributors
+* [Shiva Bhusal](https://github.com/shivapbhusal)
+* [ Abhinaya Patthi](https://github.com/abhipatthi)
+
 
 
