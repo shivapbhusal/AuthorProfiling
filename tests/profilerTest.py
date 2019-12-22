@@ -3,7 +3,7 @@ Unit tests for Profiler class
 
 '''
 import sys
-sys.path.append(r'C:\Users\Shiva\Documents\New\AuthorProfiling\src') # change this if you are using Linux. 
+sys.path.append(r'C:\Users\ptksw\Documents\projects\AuthorProfiling\src') # change this if you are using Linux. 
 #print(sys.path)
 import unittest
 import profiler

@@ -44,6 +44,9 @@ class Profiler:
 		return self.calculateAvg(lengthList)
 
 	def getAvgWordLength(self, data):
+		'''
+		Returns the average length of the words.
+		'''
 		total=0
 		words=[]
 		for sentence in data:
@@ -59,6 +62,9 @@ class Profiler:
 		return (total/len(lengthList))
 
 	def getppIndex(self, data):
+		'''
+		Returns the number of personal pronouns used per 100 words.
+		'''
 		personalPronouns=[]
 		with open('pivotFiles/personalPronouns.txt', 'r') as textFile: # Read the list of pronouns
 			for pronouns in textFile:
@@ -75,6 +81,9 @@ class Profiler:
 		return totalPersonalPronouns*100/totalWords
 
 	def getConjIndex(self, data):
+		'''
+		Returns the number of conjunctions used per 100 words.
+		'''
 		conjList=[]
 		with open('pivotFiles/conjunctions.txt', 'r') as textFile: # Read the list of pronouns
 			for conj in textFile:
