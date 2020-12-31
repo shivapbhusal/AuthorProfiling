@@ -34,7 +34,8 @@ Make sure your commit message is shorter than 50 characters.
 # Acknowledgement
 
 * Parsing English: https://explosion.ai/blog/parsing-english-in-python
-* Dikens, James Joyce
+* Charles Dikens
+* James Joyce
 * Most common English words
 * https://stackoverflow.com/questions/2288953/separate-word-lists-for-nouns-verbs-adjectives-etc
 * http://users.dsic.upv.es/~prosso/resources/RangelRosso_NLPCS13.pdf
